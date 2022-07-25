@@ -22,4 +22,8 @@ const packages = body.results.map((item) => {
 
 // [OUTPUT]
 const output = packages.map((pkg) => pkg);
-alfy.output(output);
+if(output.length) {
+  alfy.output(output);
+} else {
+  throw alfy.error(`Not able to find any package for the query: "${input}"`)
+}
